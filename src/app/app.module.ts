@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getApp, initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
+import { provideAppCheck, initializeAppCheck, ReCaptchaV3Provider } from "@angular/fire/app-check";
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { HomeComponent } from './home/home.component';
@@ -30,6 +31,10 @@ import { MatCardModule } from "@angular/material/card";
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
+    // provideAppCheck(() => initializeAppCheck(getApp(), {
+    //   provider: new ReCaptchaV3Provider(environment.sitekey),
+    //   isTokenAutoRefreshEnabled: true
+    // })),
     MatToolbarModule,
     MatIconModule,
     MatFormFieldModule,

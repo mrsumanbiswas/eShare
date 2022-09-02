@@ -20,11 +20,10 @@ import { Component } from '@angular/core';
     }
     main{
       min-height:80vh;
-      margin-top:-1rem;
       background-color:#E0D98C;
     }
     footer{
-    border:3px black solid;  
+    border:3px black solid;
     }
   `]
 })

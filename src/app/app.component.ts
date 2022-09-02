@@ -19,6 +19,7 @@ import { Component } from '@angular/core';
       position:sticky;
     }
     main{
+      padding:2rem;
       min-height:80vh;
       background-color:#E0D98C;
     }

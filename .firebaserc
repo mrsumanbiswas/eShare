@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "eshare-78427": {
+      "hosting": {
+        "eshare": [
+          "eshare"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "eshare-78427"
+  }
+}

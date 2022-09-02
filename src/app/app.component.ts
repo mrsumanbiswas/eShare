@@ -7,11 +7,17 @@ import { Component } from '@angular/core';
       <app-header></app-header>
     </header>
     <app-home></app-home>
-    <app-footer></app-footer>
+    <footer>
+      <app-footer></app-footer>
+    </footer>
   `,
   styles: [`
     header{
       top:0;
+      position:sticky;
+    }
+    footer{
+      bottom:0;
       position:sticky;
     }
   `]

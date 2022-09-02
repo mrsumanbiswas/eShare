@@ -14,6 +14,8 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     MatIconModule,
     MatFormFieldModule,
     MatButtonModule,
-
+    MatProgressBarModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

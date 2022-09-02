@@ -1,20 +1,74 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-upload',
-  template: `
-    <p>
-      upload works!
-    </p>
-  `,
+  templateUrl: './upload.component.html',
   styles: [
+    `MatCardModule 
+    img {
+        max-height: 300px;
+    }
+
+    .mat-progress-bar {
+        margin-top: 3vh;
+    }
+
+    button {
+        width: 100%;
+        margin: auto;
+        margin-top: 1rem;
+    }
+    `
   ]
 })
 export class UploadComponent implements OnInit {
 
-  constructor() { }
+  uploadfraction!: number;
+  previewPhoto!: string | ArrayBuffer | null;
+  fileData!: File;
 
-  ngOnInit(): void {
+  constructor(private storage: StorageService) { }
+
+  ngOnInit(): void { }
+
+
+
+  preview() {
+    let reader = new FileReader();
+
+    reader.readAsDataURL(this.fileData);
+
+    reader.onload = () => {
+      this.previewPhoto = reader.result;
+    };
+
+    reader.onerror = () => {
+      console.log(reader.error);
+    };
+  }
+
+  photoSelected(files: FileList | null) {
+    const file = files?.item(0)
+    if (file !== null && file !== undefined) {
+      this.fileData = file
+      this.preview()
+      return true
+    } else {
+      return false
+    }
+  }
+
+  // uploads photo to storage and creates a data to the realtime database
+  uploadPhoto() {
+
+    this.storage.uploadFile('photos', Date.now().toString(), this.fileData)
+      .on('state_changed',
+        (snapshot) => {
+          this.uploadfraction = (snapshot.bytesTransferred / snapshot.totalBytes);
+        }
+      )
+
   }
 
 }

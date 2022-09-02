@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
   styles: [`
     header{
       top:0;
-      
+      position:sticky;
     }
   `]
 })

@@ -16,6 +16,7 @@ import { Component } from '@angular/core';
   styles: [`
     header{
       top:0;
+      z-index:100000000;
       position:sticky;
     }
     main{

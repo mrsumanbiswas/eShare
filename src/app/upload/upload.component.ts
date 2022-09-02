@@ -62,7 +62,7 @@ export class UploadComponent implements OnInit {
   // uploads photo to storage and creates a data to the realtime database
   uploadPhoto() {
 
-    this.storage.uploadFile('photos', Date.now().toString(), this.fileData)
+    this.storage.uploadFile('uploads', Date.now().toString(), this.fileData)
       .on('state_changed',
         (snapshot) => {
           this.uploadfraction = (snapshot.bytesTransferred / snapshot.totalBytes);

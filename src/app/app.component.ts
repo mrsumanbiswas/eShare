@@ -3,11 +3,18 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <app-header></app-header>
+    <header>
+      <app-header></app-header>
+    </header>
     <app-home></app-home>
     <app-footer></app-footer>
   `,
-  styles: []
+  styles: [`
+    header{
+      top:0;
+      
+    }
+  `]
 })
 export class AppComponent {
   title = 'eshare';

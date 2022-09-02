@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
     <header>
       <app-header></app-header>
     </header>
-    <app-home></app-home>
+    <main>
+      <app-home></app-home>
+    </main>
     <footer>
       <app-footer></app-footer>
     </footer>
@@ -16,9 +18,13 @@ import { Component } from '@angular/core';
       top:0;
       position:sticky;
     }
+    main{
+      min-height:80vh;
+      margin-top:-1rem;
+      background-color:#E0D98C;
+    }
     footer{
-      bottom:0;
-      position:sticky;
+    border:3px black solid;  
     }
   `]
 })

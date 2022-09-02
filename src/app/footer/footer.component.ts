@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
     main{
       display:flex;
       flex-wrap:wrap;
-      background-color:#FDEEDC;
+      background-color:#F7A76C;
     }
     div{
       margin:0 auto;

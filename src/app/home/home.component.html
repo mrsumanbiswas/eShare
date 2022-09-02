@@ -1,0 +1,16 @@
+<div style="border: 1px black solid; margin-bottom: 3rem; padding: 1rem;">
+    <app-upload></app-upload>
+</div>
+
+<!-- on data loads -->
+<div id="postedPhotos" *ngIf="postData">
+    <mat-card *ngFor="let post of postData">
+        <mat-card-header>
+            <mat-card-subtitle>{{post.name}}</mat-card-subtitle>
+        </mat-card-header>
+        <div style="overflow: auto;">
+            <img [src]="post.url" alt="image" mat-card-image #image>
+        </div>
+        <span>{{image.naturalWidth}}x{{image.naturalHeight}}</span>
+    </mat-card>
+</div>

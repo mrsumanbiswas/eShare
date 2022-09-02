@@ -1,0 +1,29 @@
+
+#postedPhotos {
+    display: flex;
+    flex-wrap: wrap;
+
+    .mat-card {
+        max-width: 90vw;
+        margin: 1vh auto;
+        height: fit-content;
+        display: inline-block;
+        background-color: #F1F1F1;
+
+
+        span {
+            opacity: 50%;
+            float: right;
+            margin-top: -3rem;
+            position: relative;
+            color: whitesmoke;
+        }
+    }
+
+    img {
+        margin: auto;
+        padding: auto;
+        height: max-content;
+        width: max-content;
+    }
+}

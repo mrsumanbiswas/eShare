@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { collection, Firestore, getDocs } from '@angular/fire/firestore';
 import { DatabaseService } from '../services/database.service';
+import { StorageService } from '../services/storage.service';
+import { saveAs } from 'file-saver'
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -15,11 +18,13 @@ export class HomeComponent implements OnInit {
     url: string;
     size: number;
     timestamp: string;
+    deleteAble: boolean;
   }[] = [];
 
   constructor(
     private database: Firestore,
-    private db: DatabaseService
+    private db: DatabaseService,
+    private storage: StorageService,
   ) { }
 
   ngOnInit(): void {
@@ -47,13 +52,23 @@ export class HomeComponent implements OnInit {
             name: data['name'],
             size: data['size'],
             timestamp: data['timestamp'],
+            deleteAble: localStorage.getItem('datas/' + doc.id) != null
           }
         )
       }
     });
 
-
+    // reveversed the array
+    this.postData.reverse();
   }
 
+  deleteData(id: string) {
+    this.storage.deleteFile('uploads', id)
+    localStorage.removeItem('datas/' + id)
+  }
+
+  downloadData(url: string, name: string) {
+    saveAs(url, name);
+  }
 
 }

@@ -12,5 +12,18 @@
             <img [src]="post.url" alt="image" mat-card-image #image>
         </div>
         <span>{{image.naturalWidth}}x{{image.naturalHeight}}</span>
+        <mat-card-actions>
+            <button mat-icon-button color="warn" [disabled]="!post.deleteAble"
+                (click)="deleteData(post.id); post.deleteAble = false;download.disabled=true;">
+                <mat-icon>
+                    delete
+                </mat-icon>
+            </button>
+            <button #download mat-icon-button style="float: right;" (click)="downloadData(post.url,post.name)">
+                <mat-icon>
+                    download
+                </mat-icon>
+            </button>
+        </mat-card-actions>
     </mat-card>
 </div>

@@ -74,7 +74,7 @@ export class StorageService {
   }
 
 
-  deleteFile(base_path: string, id: string, db: "realtime" | "firestore") {
+  deleteFile(base_path: string, id: string) {
     // Delete the file
     deleteObject(
       ref(

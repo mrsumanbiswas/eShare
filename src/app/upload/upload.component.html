@@ -5,8 +5,8 @@
     </div>
     <input #photoInput name="photo" title="photo" id="photo" type="file" accept=".jpg,.jpeg,.png"
         (change)="upload.style.display = photoSelected(photoInput.files)?'':'none'; previewImage.style.display = photoSelected(photoInput.files)?'':'none'; ">
-    <button #upload (click)="uploadPhoto();upload.disabled=true;"
-        style="display: none; border-radius: 2rem;">UPLOAD</button>
+    <button #upload (click)="uploadPhoto();upload.disabled=true;" style="display: none; border-radius: 2rem; font-weight: 600;">UPLOAD
+    </button>
 </div>
 <mat-card-footer>
     <mat-progress-bar color="primary" [bufferValue]="100" [value]="uploadfraction*100">
